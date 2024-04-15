@@ -929,10 +929,10 @@
 
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="card-title text-black h4">Historico de notificaciones</h4>
+                                <h4 class="card-title text-black h4">Histórico de notificaciones</h4>
                                 <br>
                                 <a href="{{ route('new-message') }}" class="btn btn-danger">
-                                    Nueva notificacion <i class="bi bi-plus"></i> <!-- Icono de más -->
+                                    Nueva notificación <i class="bi bi-plus"></i> <!-- Icono de más -->
                                 </a>
                             </div>
                         </div>

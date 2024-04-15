@@ -930,9 +930,9 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="selectField">Categoria</label>
+                            <label for="selectField">Categoría</label>
                             <select class="form-control" id="notification_category_id" name="notification_category_id" required>
-                                <option value="">Seleccionar categoria</option>
+                                <option value="">Seleccionar categoría</option>
                                 @if($categories)
                                 @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
