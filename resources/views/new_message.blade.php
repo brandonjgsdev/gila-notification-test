@@ -925,56 +925,30 @@
                         </ul>
                     </div>
                     @endif
-                    <div class="card">
 
-                        <div class="card-header">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="card-title text-black h4">Historico de notificaciones</h4>
-                                <br>
-                                <a href="{{ route('new-message') }}" class="btn btn-danger">
-                                    Nueva notificacion <i class="bi bi-plus"></i> <!-- Icono de más -->
-                                </a>
-                            </div>
+                    <form method="POST" action="{{ route('notification-log.store') }}">
+                        @csrf
+
+                        <div class="form-group">
+                            <label for="selectField">Categoria</label>
+                            <select class="form-control" id="notification_category_id" name="notification_category_id" required>
+                                <option value="">Seleccionar categoria</option>
+                                @if($categories)
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                                @endif
+                            </select>
                         </div>
 
-                        <div class="card-body">
-                            <p class="text-black"><em>Notification Test - Brandon Jelday Guevara Silva</em></p>
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Categoría</th>
-                                            <th>Tipo</th>
-                                            <th>Usuario</th>
-                                            <th>Mensaje</th>
-                                            <th>Fecha y Hora</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if ($notifications)
-                                        @foreach($notifications as $notification)
-                                        <tr>
-                                            <td>{{ $notification->id }}</td>
-                                            <td>{{ $notification->notificationCategories->name }}</td>
-                                            <td>{{ $notification->notificationTypes->type }}</td>
-                                            <td>{{ $notification->user->name }}</td>
-                                            <td>{{ $notification->message }}</td>
-                                            <td>{{ $notification->created_at }}</td>
-                                        </tr>
-                                        @endforeach
-                                        @else
-                                        <tr>
-                                            <td colspan="6">No hay notificaciones disponibles.</td>
-                                        </tr>
-                                        @endif
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="form-group my-2">
+                            <label for="textareaField">Mensaje</label>
+                            <textarea class="form-control" required placeholder="Escribe un mensaje para enviar" id="message" name="message" rows="3"></textarea>
                         </div>
-                    </div>
+
+                        <button type="submit" class="btn btn-danger">Enviar</button>
+                    </form>
                 </div>
-
 
 
 
